@@ -1,55 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>For You ❤️</title>
-
-<link rel="stylesheet" href="style.css">
+<title>Our Memories ❤️</title>
 
 <style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
 body{
-
-    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#ff9ec4,#ffd6e7);
     display:flex;
     justify-content:center;
     align-items:center;
-    height:100vh;
-    background:linear-gradient(135deg,#ff9ec4,#ffd6e7);
+    min-height:100vh;
     flex-direction:column;
-    font-family:Arial,sans-serif;
-
-}
-
-img{
-
-    width:300px;
-    max-width:90%;
-    border-radius:20px;
-    box-shadow:0 15px 35px rgba(0,0,0,.3);
-
 }
 
 h1{
-
     color:white;
-    margin-bottom:25px;
-
+    margin-bottom:30px;
+    text-shadow:2px 2px 8px rgba(0,0,0,.3);
 }
 
+.gallery{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.gallery img{
+    width:220px;
+    max-width:90%;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+
+    opacity:0;
+    transform:translateY(50px);
+    transition:1s ease;
+}
+
+.gallery img.show{
+    opacity:1;
+    transform:translateY(0);
+}
 </style>
 
 </head>
-
 <body>
 
-<h1>❤️ My Beautiful Angel ❤️</h1>
+<h1>❤️ Our Beautiful Memories ❤️</h1>
 
-<img src="vo.jpg" alt="Beautiful">
-<img src="bd.jpg" alt="Beautiful">
-<img src="sii.jpg" alt="Beautiful">   
+<div class="gallery">
+
+    <img src="vo.jpg" id="img1">
+    <img src="bd.jpg" id="img2">
+    <img src="sii.jpg" id="img3">
+
+</div>
+
+<script>
+
+setTimeout(()=>{
+    document.getElementById("img1").classList.add("show");
+},500);
+
+setTimeout(()=>{
+    document.getElementById("img2").classList.add("show");
+},1800);
+
+setTimeout(()=>{
+    document.getElementById("img3").classList.add("show");
+},3100);
+
+</script>
+
 </body>
 </html>
