@@ -1,0 +1,114 @@
+body{
+    overflow-x:hidden;
+}
+
+.surprise-section{
+    text-align:center;
+    margin:60px 20px;
+}
+
+#openLetter{
+
+    padding:18px 45px;
+    font-size:22px;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    color:white;
+    background:linear-gradient(45deg,#ff4d94,#ff85c2);
+    box-shadow:0 0 25px rgba(255,0,120,.6);
+    transition:.4s;
+}
+
+#openLetter:hover{
+
+    transform:scale(1.1);
+
+}
+
+.letter{
+
+    display:none;
+    margin:40px auto;
+    max-width:700px;
+
+    background:white;
+
+    color:#444;
+
+    border-radius:20px;
+
+    padding:35px;
+
+    box-shadow:0 20px 50px rgba(0,0,0,.3);
+
+    animation:openLetter .8s ease;
+}
+
+@keyframes openLetter{
+
+    from{
+
+        opacity:0;
+
+        transform:scale(.4) rotateX(-90deg);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:scale(1);
+
+    }
+
+}
+
+.letter h2{
+
+    color:#ff4d94;
+
+}
+
+#typing{
+
+    font-size:24px;
+
+    line-height:1.8;
+
+    margin-top:20px;
+
+}
+
+.heart{
+
+    position:fixed;
+
+    font-size:28px;
+
+    animation:floatUp 5s linear forwards;
+
+    pointer-events:none;
+
+}
+
+@keyframes floatUp{
+
+    from{
+
+        opacity:1;
+
+        transform:translateY(0) scale(1);
+
+    }
+
+    to{
+
+        opacity:0;
+
+        transform:translateY(-800px) scale(2);
+
+    }
+
+}
