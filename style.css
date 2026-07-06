@@ -112,3 +112,20 @@ body{
     }
 
 }
+.click-btn{
+    display:inline-block;
+    margin-top:30px;
+    padding:15px 35px;
+    background:linear-gradient(45deg,#ff4d94,#ff85c2);
+    color:white;
+    text-decoration:none;
+    border-radius:50px;
+    font-size:22px;
+    font-weight:bold;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(255,77,148,.4);
+}
+
+.click-btn:hover{
+    transform:scale(1.08);
+}
