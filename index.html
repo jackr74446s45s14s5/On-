@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Chissa ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Poppins,sans-serif;
+height:100vh;
+overflow:hidden;
+background:linear-gradient(135deg,#ff758c,#ff7eb3,#ffc371);
+display:flex;
+justify-content:center;
+align-items:center;
+position:relative;
+}
+
+/* Background Hearts */
+
+.hearts span{
+position:absolute;
+bottom:-100px;
+font-size:25px;
+animation:float 10s linear infinite;
+opacity:.8;
+}
+
+@keyframes float{
+0%{
+transform:translateY(0) scale(.5);
+opacity:0;
+}
+20%{
+opacity:1;
+}
+100%{
+transform:translateY(-120vh) scale(1.4);
+opacity:0;
+}
+}
+
+.card{
+width:90%;
+max-width:700px;
+padding:35px;
+background:rgba(255,255,255,.18);
+backdrop-filter:blur(15px);
+border-radius:25px;
+box-shadow:0 15px 40px rgba(0,0,0,.2);
+text-align:center;
+color:white;
+z-index:10;
+animation:fadeIn 2s;
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+h1{
+font-family:"Dancing Script",cursive;
+font-size:3rem;
+margin-bottom:10px;
+}
+
+h2{
+margin-bottom:20px;
+font-weight:500;
+}
+
+.message{
+font-size:18px;
+line-height:1.8;
+margin-top:15px;
+}
+
+button{
+margin-top:25px;
+padding:14px 28px;
+font-size:16px;
+border:none;
+border-radius:50px;
+background:white;
+color:#ff4d79;
+cursor:pointer;
+font-weight:bold;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.08);
+background:#ffe4ec;
+}
+
+canvas{
+position:absolute;
+top:0;
+left:0;
+pointer-events:none;
+}
+
+@media(max-width:600px){
+
+h1{
+font-size:2.2rem;
+}
+
+.message{
+font-size:16px;
+}
+
+.card{
+padding:25px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="hearts"></div>
+
+<canvas id="confetti"></canvas>
+
+<div class="card">
+
+<h1>🎂 Happy Birthday Chissa ❤️</h1>
+
+<h2>My Beautiful Angel ✨</h2>
+
+<p class="message">
+
+Today is not just another day...
+It is the day the most beautiful soul came into this world.
+
+Happy Birthday, Chissa. ❤️
+
+May your smile always shine brighter than the stars, your dreams become reality, and your heart always stay filled with happiness and peace.
+
+You are one of the most precious blessings life has given me. Every conversation with you makes my day brighter, every smile of yours makes my heart happier, and every moment with you becomes a memory I treasure forever.
+
+Thank you for being so kind, caring, and incredibly wonderful.
+
+On your special day, I pray that God blesses you with endless joy, success, good health, and countless reasons to smile.
+
+No matter where life takes us, I hope you always remember that someone is sincerely wishing for your happiness every single day.
+
+May this birthday be the beginning of another beautiful chapter filled with love, laughter, adventures, and dreams coming true.
+
+Happy Birthday once again, Chissa.
+
+You truly deserve all the love and happiness in this world.
+
+❤️🎂 Happy Birthday My Favorite Person 🎂❤️
+
+</p>
+
+<button onclick="celebrate()">🎉 Celebrate</button>
+
+</div>
+
+<script>
+
+/* Floating Hearts */
+
+const hearts=document.querySelector(".hearts");
+
+for(let i=0;i<35;i++){
+
+let heart=document.createElement("span");
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"%";
+
+heart.style.animationDuration=(5+Math.random()*8)+"s";
+
+heart.style.fontSize=(15+Math.random()*25)+"px";
+
+heart.style.animationDelay=Math.random()*8+"s";
+
+hearts.appendChild(heart);
+
+}
+
+/* Confetti */
+
+const canvas=document.getElementById("confetti");
+
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+
+let confetti=[];
+
+function createConfetti(){
+
+for(let i=0;i<250;i++){
+
+confetti.push({
+
+x:Math.random()*canvas.width,
+y:Math.random()*canvas.height-canvas.height,
+r:Math.random()*6+2,
+d:Math.random()*250,
+color:`hsl(${Math.random()*360},100%,60%)`,
+tilt:Math.random()*10-10,
+speed:2+Math.random()*4
+
+});
+
+}
+
+}
+
+createConfetti();
+
+function draw(){
+
+ctx.clearRect(0,0,canvas.width,canvas.height);
+
+confetti.forEach(c=>{
+
+ctx.beginPath();
+
+ctx.fillStyle=c.color;
+
+ctx.fillRect(c.x,c.y,c.r,c.r*2);
+
+});
+
+update();
+
+requestAnimationFrame(draw);
+
+}
+
+function update(){
+
+confetti.forEach(c=>{
+
+c.y+=c.speed;
+
+c.x+=Math.sin(c.d);
+
+if(c.y>canvas.height){
+
+c.y=-20;
+
+c.x=Math.random()*canvas.width;
+
+}
+
+});
+
+}
+
+draw();
+
+function celebrate(){
+
+for(let i=0;i<100;i++){
+
+confetti.push({
+
+x:Math.random()*canvas.width,
+y:-20,
+r:Math.random()*7+2,
+d:Math.random()*200,
+color:`hsl(${Math.random()*360},100%,60%)`,
+speed:3+Math.random()*5
+
+});
+
+}
+
+}
+
+window.onresize=()=>{
+
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+}
+
+</script>
+<div class="surprise-section">
+
+    <button id="openLetter" onclick="openLetter()">
+        💖 Click Me 💖
+    </button>
+
+    <div id="letter" class="letter">
+
+        <div class="letter-content">
+
+            <h2>💌 A Little Message For You 💌</h2>
+
+            <p id="typing"></p>
+
+        </div>
+
+    </div>
+
+    <!-- Optional music -->
+    <audio id="bgMusic" loop>
+        <source src="assets/music.mp3" type="audio/mpeg">
+    </audio>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
